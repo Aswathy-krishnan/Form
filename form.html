@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="main">
+      <div class="top">
+        <h4>Account</h4>
+
+        <div class="details box-margin">
+          <i class="fa fa-user icon"></i>
+          <input id="fullName" type="text" placeholder="Full Name" required />
+        </div>
+        <p class="error" id="errorFullName"></p>
+        <div class="details box-margin">
+          <i class="fa fa-envelope-open icon"></i>
+
+          <input id="email" type="text" placeholder="Email" required />
+        </div>
+        <p class="error" id="errorEmail"></p>
+        <div class="details box-margin">
+          <i class="fa fa-key icon"></i>
+
+          <input
+            id="password"
+            type="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <p class="error" id="errorpassword"></p>
+        <div class="details box-margin">
+          <i class="fa fa-key icon"></i>
+
+          <input
+            id="confirm-password"
+            type="password"
+            placeholder="Confirm Password"
+            required
+          />
+        </div>
+        <p class="error" id="errorConfirmPassword"></p>
+      </div>
+      <div class="middle">
+        <div class="dob-details">
+          <h4>Date of Birth</h4>
+          <div class="dob-box">
+            <select name="date">
+              <option value="">DD</option>
+              <option value="1">01</option>
+              <option value="2">02</option>
+            </select>
+            <select name="date">
+              <option value="">MM</option>
+              <option value="Jan">january</option>
+              <option value="Feb">Febrary</option>
+            </select>
+            <select name="date">
+              <option value="">YYYY</option>
+              <option value="2022">2022</option>
+              <option value="2021">2021</option>
+            </select>
+          </div>
+        </div>
+        <div class="gender-details">
+          <h4>Gender</h4>
+          <div class="gender-box">
+            <button>Male</button>
+            <button>Female</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom">
+        <h4>Payment Details</h4>
+        <div class="payment-details box-margin">
+          <button><i class="fa fa-cc-visa icon"></i> Credit Card</button>
+          <button><i class="fa fa-paypal icon"></i>Paypal</button>
+        </div>
+        <div class="payment-details payment-new card-number box-margin">
+          <i class="fa fa-credit-card icon"></i>
+          <input id="cardNumber" type="text" placeholder="Card Number" />
+        </div>
+        <p class="error" id="errorCardNumber"></p>
+
+        <div class="payment card-number payment-new box-margin">
+          <div class="button-1">
+            <i class="fa fa-address-card icon"></i>
+            <input id="CardCVC" type="text" placeholder="Card CVC" />
+          </div>
+          <!-- <p class="error" id="errorCardCVC"></p> -->
+
+          <select>
+            <option value="">01 Jan</option>
+          </select>
+          <select>
+            <option value="">2015</option>
+          </select>
+        </div>
+        <p class="error" id="errorCardCVC"></p>
+      </div>
+      <input class="checkbox" type="checkbox" /> I Agree to the terms and
+      conditions
+      <div>
+        <button onclick="submitData()">Submit</button>
+      </div>
+    </div>
+    </div>
+  </body>
+  <script
+    src="https://code.jquery.com/jquery-3.6.1.js"
+    integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous"
+  ></script>
+
+  <script>
+    let name = $("#fullName");
+    let errorName = $("#errorFullName");
+    let email = $("#email");
+    let errorEmail = $("#errorEmail");
+
+    let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    let password = $("#password");
+    let errorPassword = $("#errorpassword");
+    let confirmpassword = $("#confirm-password");
+    let errorConfirmPassword = $("#errorConfirmPassword");
+    let cardNumber = $("#cardNumber");
+    let errorCardNumber = $("#errorCardNumber");
+    let CardCVC = $("#CardCVC");
+    let errorCardCVC = $("#errorCardCVC");
+
+    function submitData() {
+      // console.log(name.val());
+      let numberRegExp = new RegExp(/[0-9]{3}/);
+
+      let numRegExp = new RegExp(/[0-9]{10}/);
+
+      if (name.val().trim() === "") {
+        errorName.html("Please enter your name");
+      } else if (name.val().trim().length < 4) {
+        errorName.html("Please enter atleast 4 letters ");
+      } else {
+        errorName.html("");
+      }
+
+      if (email.val().trim() === "") {
+        errorEmail.html("Please enter your mail-Id");
+      } else if (!email.val().trim().match(mailformat)) {
+        errorEmail.html("Please enter a valid email address");
+      } else {
+        errorEmail.html("");
+      }
+
+      if (password.val().trim() === "") {
+        errorPassword.html("Please enter your password");
+      } else if (password.val().trim().length < 5) {
+        errorPassword.html("Minimum length of password is 5 ");
+      } else {
+        errorPassword.html("");
+      }
+      if (confirmpassword.val().trim() === "") {
+        errorConfirmPassword.html("Please confirm your password");
+      } else if (!(confirmpassword.val().trim() === password.val().trim())) {
+        errorConfirmPassword.html(
+          " Your Password and Confirm Password should match"
+        );
+      } else {
+        errorConfirmPassword.html("");
+      }
+      if (cardNumber.val().trim() === "") {
+        errorCardNumber.html("Please enter your Card Number");
+      } else if (cardNumber.val().trim().length !== 10) {
+        errorCardNumber.html("Please enter your 10 digit Card Number ");
+      } else if (!numRegExp.test(cardNumber.val().trim())) {
+        errorCardNumber.html("Please enter number");
+      } else {
+        errorCardNumber.html("");
+      }
+      if (CardCVC.val().trim() === "") {
+        errorCardCVC.html("Please enter your CardCVC Number");
+      } else if (CardCVC.val().trim().length !== 3)
+        errorCardCVC.html("Please enter last 3 numbers on back of your card ");
+      else if (!numberRegExp.test(CardCVC.val().trim())) {
+        errorCardCVC.html("Please enter number");
+      } else {
+        errorCardCVC.html("");
+      }
+    }
+  </script>
+</html>

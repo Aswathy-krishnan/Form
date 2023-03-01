@@ -1,0 +1,168 @@
+.container > h1{
+      
+    text-align: center ;
+    color: rgb(104, 101, 98);
+   text-decoration: underline ;
+  }
+ .checkbox{
+  margin-top: 15px;
+ }
+  .button{
+    height:30px;
+    width: 60px;
+    background-color: rgb(122, 230, 105);
+    border-radius: 20px;
+    margin-top: 10px;
+    color: azure;
+
+  }
+  .error{
+    color: red;
+  }
+    button,
+    select,
+    input {
+      background-color: rgb(247, 247, 247);
+      border: 1px solid rgb(204, 201, 201);
+    }
+    .payment-details button:focus {
+      background-color: rgb(122, 230, 105);
+    }
+    .gender-details button:focus  {
+      background-color: rgb(122, 230, 105);
+    }
+
+    h4 {
+      color: rgb(122, 230, 105);
+    }
+    .payment-details i {
+      margin-right: 8px;
+    }
+
+    .card-number button {
+      text-align: left;
+    }
+
+    .main {
+      margin: auto ;
+      box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px,
+        rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px,
+        rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px,
+        rgba(0, 0, 0, 0.07) 0px 32px 64px;
+      width: 60vw;
+      padding: 20px 40px;
+    }
+
+    .details i {
+      position: absolute;
+      padding: 10px 0px 10px 10px;
+      font-size: 18px;
+     
+    }
+    .details{
+      display: flex;
+    }
+    .details input {
+    
+      padding: 10px 0px 10px 35px;
+      flex: 1;
+    }
+    .box-margin {
+      margin-bottom: 10px;
+    }
+    .dob-details {
+      flex: 1;
+    }
+    .gender-details {
+      flex: 1;
+    }
+    .middle {
+      display: flex;
+    }
+    .dob-details select {
+      padding: 10px 0px;
+    }
+    .dob-box {
+      display: flex;
+    }
+   .dob-box input {
+      flex: 1;
+      margin-right: 5px;
+      padding: 10px 0px 10px 10px;
+    } 
+    .gender-box {
+      display: flex;
+    }
+    .gender-box button {
+      flex: 1;
+      padding: 10px;
+    }
+    .payment-details {
+      display: flex;
+    }
+    .payment-details button {
+      flex: 1;
+      padding: 10px;
+    }
+    .payment-details {
+      display: flex;
+    }
+
+    .payment-details button {
+      flex: 1;
+    }
+    .payment-new input {
+      flex: 1;
+      padding: 10px 0px 10px 45px;
+    }
+    .payment-new i {
+      position: absolute;
+
+      padding: 7px 10px;
+      height: 10px;
+      margin-top: 5px;
+    }
+    .payment-details select {
+      flex: 1;
+    }
+    .payment {
+      display: flex;
+    }
+    .payment div {
+      flex: 2;
+      margin-right: 5px;
+      display: flex;
+     
+    }
+    .payment select {
+      flex: 1;
+      padding: 10px;
+    }
+    .submit{
+      text-align: center;
+      margin-top: 10px;
+    }
+    .submit button{
+      padding: 6px 20px;
+      border-radius: 5px;
+      transition: 1s ease ;
+    }
+    .submit button:hover{
+
+     background-color: rgb(122, 230, 105); 
+    }
+    @media only screen and (max-width: 600px)  {
+      .middle ,.payment{
+      display: flex;
+      flex-direction: column;
+      }
+      .payment div{
+        margin-bottom: 10px; 
+        margin-right: 0px; 
+      }
+      .payment select{
+        margin-bottom: 10px; 
+      }
+
+
+}
